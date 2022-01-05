@@ -1,0 +1,6 @@
+<Ref>
+<Designation>
+<Power>
+<PF>
+<PE>
+<SPECTRUM = <Lambda> <Value>; <Lambda> <Value>;...  >  

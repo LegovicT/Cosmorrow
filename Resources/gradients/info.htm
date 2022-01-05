@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Dégradés</title>
+<style type="text/css">
+body {font-family:"Times New Roman",serif}
+h1 {font:bold 135% Arial,sans-serif; color:#4000A0; margin-bottom:0.9em}
+h2 {font:bold 95% Arial,sans-serif; color:#900000; margin-top:1.5em; margin-bottom:1em}
+</style>
+</head>
+<body>
+<h1>Dégradés</h1>
+<h2>Informations</h2>
+Auteur : <a href="mailto:fpdf@kreativschmiede.de?subject=D%C3%A9grad%C3%A9s">Andreas Würmser</a><br>
+Licence : FPDF
+<h2>Description</h2>
+Ce script permet de remplir des rectangles avec des dégradés de couleur.<br>
+<br>
+<code>LinearGradient(<b>float</b> x, <b>float</b> y, <b>float</b> w, <b>float</b> h, <b>array</b> col1, <b>array</b> col2 [, <b>array</b> coords])</code><br>
+<br>
+<code><u>x</u></code> : abscisse du coin supérieur gauche du rectangle.<br>
+<code><u>y</u></code> : ordonnée du coin supérieur gauche du rectangle.<br>
+<code><u>w</u></code> : largeur du rectangle.<br>
+<code><u>h</u></code> : hauteur du rectangle.<br>
+<code><u>col1</u></code> : première couleur (composantes RVB).<br>
+<code><u>col2</u></code> : seconde couleur (composantes RVB).<br>
+<code><u>coords</u></code> : tableau de la forme (x1, y1, x2, y2) qui définit la direction du dégradé (voir linear_gradient_coords.jpg).
+La valeur par défaut est de la gauche vers la droite (x1=0, y1=0, x2=1, y2=0).<br>
+<br>
+<code>RadialGradient(<b>float</b> x, <b>float</b> y, <b>float</b> w, <b>float</b> h, <b>array</b> col1, <b>array</b> col2 [, <b>array</b> coords])</code><br>
+<br>
+<code><u>x</u></code> : abscisse du coin supérieur gauche du rectangle.<br>
+<code><u>y</u></code> : ordonnée du coin supérieur gauche du rectangle.<br>
+<code><u>w</u></code> : largeur du rectangle.<br>
+<code><u>h</u></code> : hauteur du rectangle.<br>
+<code><u>col1</u></code> : première couleur (composantes RVB).<br>
+<code><u>col2</u></code> : seconde couleur (composantes RVB).<br>
+<code><u>coords</u></code> : tableau de la forme (fx, fy, cx, cy, r) où (fx, fy) est le point de départ du dégradé de couleur 1,
+(cx, cy) est le centre du cercle de couleur 2, et r est le rayon du cercle (voir radial_gradient_coords.jpg).<br>
+<br>
+<code>CoonsPatchMesh(<b>float</b> x, <b>float</b> y, <b>float</b> w, <b>float</b> h, <b>array</b> col1, <b>array</b> col2, <b>array</b> col3, <b>array</b> col4 [, <b>array</b> coords [, <b>float</b> coords_min [, <b>float</b> coords_max]]])</code><br>
+<br>
+<code><u>x</u></code> : abscisse du coin supérieur gauche du rectangle.<br>
+<code><u>y</u></code> : ordonnée du coin supérieur gauche du rectangle.<br>
+<code><u>w</u></code> : largeur du rectangle.<br>
+<code><u>h</u></code> : hauteur du rectangle.<br>
+<code><u>col1</u></code> : première couleur (coin inférieur gauche) (composantes RVB).<br>
+<code><u>col2</u></code> : deuxième couleur (coin inférieur droit) (composantes RVB).<br>
+<code><u>col3</u></code> : troisième couleur (coin supérieur droit) (composantes RVB).<br>
+<code><u>col4</u></code> : quatrième couleur (coin supérieur gauche) (composantes RVB).<br>
+<code><u>coords</u></code> :<br>
+<br>
+- pour un seul patch<br>
+<br>
+array(float x1, float y1, .... float x12, float y12) :
+12 paires de coordonnées (de 0 à 1) qui spécifient les points de contrôle de la courbe de Bézier<br>
+<br>
+- pour plusieurs patchs<br>
+<br>
+array[nombre de patchs] : tableaux contenant les clés suivantes pour chaque patch :<br>
+<code>f</code> : position du patch (0 = premier patch, 1, 2, 3 = droite, haut ou gauche par rapport au précédent patch)<br>
+<code>points</code> : 12 paires de coordonnées pour les points de contrôle du premier patch, puis 8 paires pour les suivants<br>
+<code>colors</code> : 4 couleurs pour le premier patch, 2 pour les suivants<br>
+<br>
+<code><u>coords_min</u></code> : valeur minimale utilisée pour les coordonnées (0 par défaut)<br>
+<code><u>coords_max</u></code> : valeur maximale utilisée pour les coordonnées (1 par défaut)
+</body>
+</html>

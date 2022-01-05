@@ -1,0 +1,8 @@
+COM20;Cosmorrow 1x20w 3x50 cm;01;20;60;COM20BL,COM20IR,COM20UV;
+COM40;Cosmorrow 2x20w 3x90 cm;02;20;60;;
+COM40D;Cosmorrow 1x40w 13x50 cm;01;40;60;;
+COM80D;Cosmorrow 2x40w 13x90 cm;02;40;60;;
+COM160;Cosmorrow up to 8x20w 25x50 cm;08;20;60;COM160BL,COM160IR,COM160UV;
+COM320;Cosmorrow up to 16x20w 50x50 cm;16;20;60;COM320BL;
+COM640;Cosmorrow up to 16x40w 50x90 cm;16;40;60;;
+COM960;Cosmorrow up to 24x40w 90x90 cm;24;40;60;;

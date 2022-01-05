@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Figures géométriques</title>
+<style type="text/css">
+body {font-family:"Times New Roman",serif}
+h1 {font:bold 135% Arial,sans-serif; color:#4000A0; margin-bottom:0.9em}
+h2 {font:bold 95% Arial,sans-serif; color:#900000; margin-top:1.5em; margin-bottom:1em}
+</style>
+</head>
+<body>
+<h1>Figures géométriques</h1>
+<h2>Informations</h2>
+Auteur : David Hernández Sanz<br>
+Licence : FPDF
+<h2>Description</h2>
+Cette extension permet de dessiner des lignes, rectangles, ellipses, polygones et courbes avec différents styles.
+Les méthodes sont :<br>
+<br>
+&#x2022; <code>SetLineStyle($style: array)</code><br>
+<br>
+Définit le style du trait. Les paramètres sont :<br>
+<br>
+  - <code>style</code> : tableau avec les clés possibles suivantes :<br>
+<br>
+    . width : épaisseur du trait en unité utilisateur.<br>
+    . cap : style de l'extrêmité de la ligne (butt, round, square).<br>
+    . join : miter, round ou bevel.<br>
+    . dash : pointillé. Peut être 0 (pas de pointillé) ou bien un tableau avec une série de longueurs.<br>
+    . phase : indique le démarrage du pointillé.<br>
+    . color : couleur. Tableau avec les composantes rouge, vert et bleu.<br>
+<br>
+&#x2022; <code>Line($x1: float, $y1: float, $x2: float, $y2: float, $style: array)</code><br>
+<br>
+Trace un trait. Les paramètres sont :<br>
+<br>
+  - <code>x1</code>, <code>y1</code> : point de départ.<br>
+  - <code>x2</code>, <code>y2</code> : point d'arrivée.<br>
+  - <code>style</code> : style du trait (tableau comme pour SetLineStyle).<br>
+<br>
+&#x2022; <code>Rect($x: float, $y: float, $w: float, $h: float, $style: string, $border_style: array, $fill_color: array)</code><br>
+<br>
+Trace un rectangle. Les paramètres sont :<br>
+<br>
+  - <code>x</code>, <code>y</code> : coin supérieur gauche.<br>
+  - <code>w</code>, <code>h</code> : largeur et hauteur.<br>
+  - <code>style</code> : style du rectangle (D, F, DF, FD).<br>
+  - <code>border_style</code> : style de bordure du rectangle. Tableau avec (all => style) pour l'ensemble des bordures, ou (L => style, T => style, R => style, B => style) pour chacune. Le style est un tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+<br>
+&#x2022; <code>Curve($x0: float, $y0: float, $x1: float, $y1: float, $x2: float, $y2: float, $x3: float, $y3: float, $style: string, $line_style: array, $fill_color: array)</code><br>
+<br>
+Trace une courbe de Bézier. Les paramètres sont :<br>
+<br>
+  - <code>x0</code>, <code>y0</code> : point de départ.<br>
+  - <code>x1</code>, <code>y1</code> : point de contrôle 1.<br>
+  - <code>x2</code>, <code>y2</code> : point de contrôle 2.<br>
+  - <code>x3</code>, <code>y3</code> : point d'arrivée.<br>
+  - <code>style</code> : style du rectangle (D, F, DF, FD).<br>
+  - <code>line_style</code> : style du trait. Tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+<br>
+&#x2022; <code>Ellipse($x0: float, $y0: float, $rx: float, $ry: float, $angle: float, $astart: float, $afinish: float, $style: string, $line_style: array, $fill_color: array, $nSeg: integer)</code><br>
+<br>
+Trace une ellipse. Les paramètres sont :<br>
+<br>
+  - <code>x0</code>, <code>y0</code> : centre.<br>
+  - <code>rx</code>, <code>ry</code> : rayons horizontal et vertical (si ry vaut 0, un cercle est tracé).<br>
+  - <code>angle</code> : angle d'orientation (sens contraire des aiguilles d'une montre).<br>
+  - <code>astart</code> : angle de départ.<br>
+  - <code>afinish</code> : angle d'arrivée.<br>
+  - <code>style</code> : style de l'ellipse (D, F, DF, FD, C (D + close)).<br>
+  - <code>line_style</code> : style du trait . Tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+  - <code>nSeg</code> : l'ellipse est composée de nSeg courbes de Bézier.<br>
+<br>
+&#x2022; <code>Circle($x0: float, $y0: float, $r: float, $astart: float, $afinish: float, $style: string, $line_style: array, $fill_color: array, $nSeg: integer)</code><br>
+<br>
+Trace un cercle. Les paramètres sont :<br>
+<br>
+  - <code>x0</code>, <code>y0</code> : centre.<br>
+  - <code>r</code>: rayon.<br>
+  - <code>astart</code> : angle de départ.<br>
+  - <code>afinish</code> : angle d'arrivée.<br>
+  - <code>style</code> : style du circle (D, F, DF, FD, C (D + close)).<br>
+  - <code>line_style</code> : style du trait. Tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+  - <code>nSeg</code> : le cercle est composé de nSeg courbes de Bézier.<br>
+<br>
+&#x2022; <code>Polygon($p: array, $style: string, $line_style: array, $fill_color: array)</code><br>
+<br>
+Trace un polygone. Les paramètres sont :<br>
+<br>
+  - <code>p</code> : les points. Tableau avec les valeurs x0, y0, x1, y1,..., x(np-1), y(np-1).<br>
+  - <code>style</code> : style du polygone (D, F, DF, FD).<br>
+  - <code>line_style</code> : style du trait. Tableau avec (all => style) pour l'ensemble des bordures, ou (0..np-1 => style) pour chacune. Le style est un tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+<br>
+&#x2022; <code>RegularPolygon($x0: float, $y0: float, $r: float, $ns: Integer, $angle: float, $circle: boolean, $style: string, $line_style: array, $fill_color: array, $circle_style: array, $circle_line_style: array, $circle_fill_color: array)</code><br>
+<br>
+Trace un polygone régulier. Les paramètres sont :<br>
+<br>
+  - <code>x0</code>, <code>y0</code> : centre.<br>
+  - <code>r</code> : rayon du cercle circonscrit.<br>
+  - <code>ns</code> : nombre de côtés.<br>
+  - <code>angle</code> : angle d'orientation (sens contraire des aiguilles d'une montre).<br>
+  - <code>circle</code> : tracer le cercle circonscrit ou pas.<br>
+  - <code>style</code> : style du polygone (D, F, DF, FD).<br>
+  - <code>line_style</code> : style du trait. Tableau avec (all => style) pour l'ensemble des bordures, ou (0..ns-1 => style) pour chacune. Le style est un tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+  - <code>circle_style</code> : style du cercle circonscrit (D, F, DF, FD).<br>
+  - <code>circle_line_style</code> : style du trait pour le cercle circonscrit. Tableau comme pour SetLineStyle.<br>
+  - <code>circle_fill_color</code> : couleur de remplissage pour le cercle circonscrit. Tableau avec les composantes rouge, vert et bleu.<br>
+<br>
+&#x2022; <code>StarPolygon($x0: float, $y0: float, $r: float, $nv: Integer, $ng: Integer, $angle: float, $circle: boolean, $style: string, $line_style: array, $fill_color: array, $circle_style: array, $circle_line_style: array, $circle_fill_color: array)</code><br>
+<br>
+Trace un polygone en étoile. les paramètres sont :<br>
+<br>
+  - <code>x0</code>, <code>y0</code> : centre.<br>
+  - <code>r</code> : rayon du cercle circonscrit.<br>
+  - <code>nv</code> : nombre de sommets.<br>
+  - <code>ng</code> : nombre de sommets à sauter (ng % nv = 1 => polygon régulier).<br>
+  - <code>angle</code> : angle d'orientation (sens contraire des aiguilles d'une montre).<br>
+  - <code>circle</code> : tracer le cercle circonscrit ou pas.<br>
+  - <code>style</code> : style du polygone (D, F, DF, FD).<br>
+  - <code>line_style</code> : style du trait. Tableau avec (all => style) pour l'ensemble des bordures, ou (0..ns-1 => style) pour chacune. Le style est un tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+  - <code>circle_style</code> : style du cercle circonscrit (D, F, DF, FD).<br>
+  - <code>circle_line_style</code> : style du trait pour le cercle circonscrit. Tableau comme pour SetLineStyle.<br>
+  - <code>circle_fill_color</code> : couleur de remplissage pour le cercle circonscrit. Tableau avec les composantes rouge, vert et bleu.<br>
+<br>
+&#x2022; <code>RoundedRect($x: float, $y: float, $w: float, $h: float, $r: float, $round_corner: string, $style: string, $border_style: string, $fill_color: array)</code><br>
+<br>
+Trace un rectanle aus coins arrondis. Les paramètres sont :<br>
+<br>
+  - <code>x</code>, <code>y</code> : coin supérieur gauche.<br>
+  - <code>w</code>, <code>h</code> : largeur et hauteur.<br>
+  - <code>r</code> : rayon des coins.<br>
+  - <code>round_corner</code> : tracer les coins arrondis ou normaux. Chaîne contenant des 0 (normal) ou 1 (arrondi). Les positions sont, dans l'ordre : haut gauche, haut droit, bas droit et bas gauche.<br>
+  - <code>style</code> : style du rectangle (D, F, DF, FD).<br>
+  - <code>border_style</code> : style de bordure du rectangle. Tableau avec (all => style) pour l'ensemble des bordures, ou (L => style, T => style, R => style, B => style) pour chacune. Le style est un tableau comme pour SetLineStyle.<br>
+  - <code>fill_color</code> : couleur de remplissage. Tableau avec les composantes rouge, vert et bleu.<br>
+</body>
+</html>
